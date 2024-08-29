@@ -7,9 +7,6 @@ WIDTH = 100
 HEIGHT = 60
 NODES: list[WFCNode] = [
     WFCNode((0, 0), "./imgs/blank.png", [0, 0, 0, 0]),
-    WFCNode((0, 0), "./imgs/blank.png", [0, 0, 0, 0]),
-    WFCNode((0, 0), "./imgs/blank.png", [0, 0, 0, 0]),
-    WFCNode((0, 0), "./imgs/blank.png", [0, 0, 0, 0]),
     WFCNode((0, 0), "./imgs/n.png",     [1, 0, 0, 0]),
     WFCNode((0, 0), "./imgs/e.png",     [0, 1, 0, 0]),
     WFCNode((0, 0), "./imgs/w.png",     [0, 0, 1, 0]),
@@ -26,7 +23,6 @@ NODES: list[WFCNode] = [
     WFCNode((0, 0), "./imgs/sew.png",   [0, 1, 1, 1]),
     WFCNode((0, 0), "./imgs/nwse.png",  [1, 1, 1, 1]),
 ]
-DEFAULT_NODE =  WFCNode((0, 0), "./imgs/blank.png", [0, 0, 0, 0])
 DIR_OFFSETS = [
     (0, -1),
     (1, 0),
@@ -74,7 +70,7 @@ if __name__ == "__main__":
                 except: print(f"ERROR: {(ngb[0], ngb[1])}")
     
         if len(possible_nodes) == 0: 
-            grid[x][y] = DEFAULT_NODE
+            grid[x][y] = NODES[0]
             grid[x][y].collapsed = True
             print(f"({x}, {y}): No Match Found, Resorting To Default")
         else:
